@@ -1,0 +1,60 @@
+{"centerdata" : [
+		
+		{
+			type: 'yogacenter',
+			geometry: {type: 'Point', coordinates: [13.10432047,77.60714158]},
+			properties: {code: 'IN-KA-01-01-01-01',name: 'Apple Mediclinic, Kogilu',Timings: '6-7.30 am', contact: '9902731117'},
+			code : '01',
+			name : 'Apple Mediclinic',
+			Address : 'Kogilu Cross',
+			locality : 'Kogilu',
+			ward :'Ward no 1',
+			Assembly : 'Yelahanka'
+			Loksabha : 'Chikkaballapur',
+			State : 'Karnataka',
+			Country : 'India',
+			pin : 560064,
+			timings : '6 - 7.30 am',
+			contact : '992731117',			
+			city: 'Bengaluru'
+        }, 
+		{
+			type: 'yogacenter',		 
+			geometry: {type: 'Point', coordinates: [13.0958275,77.5785133]},
+			properties: {code: 'IN-KA-01-01-03-01',name: 'Veeranjaneya Temple, Yelahanka Newtown',Timings: '5-6.30 am', contact: '9008822551'},
+			code : '02',
+			name : 'Veeranjaneya Temple',
+			Address : 'Yelahanka Newtown',
+			locality : 'Yelahanka',
+			ward :'Ward no 2',
+			Assembly : 'Yelahanka',
+			Loksabha : 'Chikkaballapur',
+			State : 'Karnataka',
+			Country : 'India',
+			pin : 560064,
+			timings : '5 - 6.30 am',
+			contact : '9008822551',			
+			city: 'Bengaluru'
+          
+        },
+		
+		{
+			type: 'yogacenter',		 
+			geometry: {type: 'Point', coordinates: [13.068958,77.6155515]},
+			properties: {code: 'IN-KA-01-01-05-01',name: 'GYM Building, Telecomlayout',Timings: '5.30-6.30 am', contact: '9482015176'},
+			code : '03',
+			name : 'GYM Building, Telecomlayout',
+			Address : 'Telecom  layout',
+			locality : 'Telecomlayout',
+			ward :'Ward no 3',
+			Assembly : 'Byatarayanapur',
+			Loksabha : 'Bengaluru North',
+			State : 'Karnataka',
+			Country : 'India',
+			pin : 560064,
+			timings : '5.30 - 6.30 am',
+			contact : '9482015176',			
+			city: 'Mysore'
+          
+        }
+]}

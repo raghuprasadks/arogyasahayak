@@ -1,0 +1,401 @@
+$(function() {
+    $("#book").autocomplete({        
+        source: function(request, response) {
+            var data = [{
+                    label: "hi",
+                    value: "bye"
+                    }];
+            response(data);
+        },
+        select: function( event, ui ) {
+            $( "#book" ).val( ui.item.label); //ui.item is your object from the array
+            return false;
+        }
+    });
+});​
+
+http://stackoverflow.com/questions/12496770/autocomplete-using-jquery-callback-label-value-pair
+
+var countries = ["USA", "Canada", "Mexico", ...]
+
+$('input').autocomplete({
+    source : countries
+});
+If you are working with a remote source:
+
+$('input').autocomplete({
+    source : function (request, response) {
+        $.ajax({
+            url: "url_to_get_countries",
+            dataType: "json",
+            success: function( data ) {
+            response( $.map( data.countries, function( item ) {
+            return {
+                label: item.country_name,
+                value: item.country_id
+            }
+            }));
+            }
+        });
+    }
+});
+
+
+
+
+$('#serviceprovider').autocomplete({
+		source: function(request,response){
+		console.log('Service on change. Request n response');
+		response($.map(serviceprovider.serviceprovider,function (item){
+		console.log('Service on change. in side map ' +item.service +' value ' +ui.value);
+			if (inArray(item.service,ui.value)){
+				return {
+				label :item.name
+				}
+		}
+		}));
+	}})
+	
+	
+	$(document).ready(function(){
+    $("#service").change(function(){
+		console.log('Change in service' +$("#service").val());
+		
+    });
+	});
+	
+	
+	-----------
+	
+	function getservice (services)
+{
+	console.log("getservice");
+	var servicearray = [];
+	
+	
+		$.each(services.servicelist,function(key,value){
+			console.log("getservice:data:loop ", this.id);
+		//	servicearray.push("label:" +this.id,"value": +this.name);
+			servicearray.push(value);
+			console.log("getservice array:after adding ", +servicearray);
+
+		
+	 });
+	
+	
+	console.log("getservice array final", +servicearray);
+	return servicearray;
+}
+
+
+$.each(serviceprovider.serviceprovider,function (key,value) 
+{
+	if($.inArray(selectedservice,value.service)) !== -1)
+	{ 
+		console.log(value.name);
+	}
+};
+
+
+$.each(serviceprovider.serviceprovider,function (key,value) 
+{
+	if($.inArray(selectedservice,value.service) !== -1)
+	{ 
+		servicearray.push(value.name);
+	}
+console.log('service array' servicearray);
+});
+
+
+var result=[] ;
+$.each(servicedata.servicedata, 
+        function(i,e)
+		{
+			if($.inArray(selecedservice, e.service)===-1)
+			{
+				if($.inArray(selecedserviceprovider, e.serviceprovider)===-1){
+						if($.inArray(e.district,result)===-1) result.push(e.district) ;
+				}
+			}
+			
+		
+		});
+result;
+
+var result=[] ;
+var selectedservice = 'Yoga';
+var selectedserviceprovider ='Patanjali';
+$.each(servicedata.servicedata, 
+        function(i,e)
+		{
+			console.log("selected service " +selectedservice, +"Service in service data", +e.service);
+			if($.inArray(selectedservice, e.service) !== -1)
+			{
+				console.log("selected service provider " +selectedserviceprovider, +"Serviceprovider in service data", +e.serviceprovider);
+				if($.inArray(selectedserviceprovider, e.serviceprovider) !==-1){
+						
+						if($.inArray(e.district,result)===-1) 
+						{
+							console.log ("district " +e.district);
+							result.push(e.district) ;
+						}
+				}
+			}
+			
+		
+		});
+result;
+
+
+
+var result=[] ;
+var selectedservice = 'Yoga';
+var selectedserviceprovider ='Art of Living';
+$.each(servicedata.servicedata, 
+        function(i,e)
+		{
+			console.log("selected service " +selectedservice, +"Service in service data", e.service);
+			if($.inArray(selectedservice, e.service) !== -1)
+			{
+				console.log("selected service provider " +selectedserviceprovider, +"Serviceprovider in service data", e.serviceprovider);
+				if($.inArray(selectedserviceprovider, e.serviceprovider) !==-1){
+						
+						if($.inArray(e.district,result)===-1) 
+						{
+							console.log ("district " +e.district);
+							result.push(e.district) ;
+						}
+				}
+			}
+			
+		
+		});
+result;
+
+
+function getlocation(data)
+{
+//	console.log("Insider getlocation: mylogation");
+	var districts=[];            
+	$.each(data.organization.service, function() {
+//		console.log("first loop:mylogation "+this.centers +" #"+this.name); if (this.name=="yoga"){
+    $.each(this.centers, function() {
+	//		console.log("second loop district:mylogation " +this.localityOrvillage); 
+			districts.push(this.district);
+        
+      //      console.log("third loop district " +districts);
+            });			
+		});
+	//	console.log("final loop district " +districts);
+		return districts;
+}
+
+---
+function getorganization(data)
+{
+	var dataset =[];
+	var selectedservice = $("#service").val();
+	$.each(data.service, function(key,value) 
+	{
+		$.each(this, function(key,value) 
+		{
+			
+				console.log("getorganization :second loop : Key #" +key +" value $" +value);
+		//		dataset.push(key,value);
+				if (value==selectedservice)
+				{
+					dataset.push(value);
+				}
+			//	if (value===selectedservice)
+			//	{
+				
+					$.each(this, function(key,value) 
+					{
+							console.log("getorganization :third loop : Key #" +key +" value $" +value);
+					//		console.log("getorganization:which " +key +" value" +value);
+							$.each(this, function(key,value) 
+							{
+								console.log("getorganization :fourth loop : Key #" +key +" value $" +value);
+						//		console.log("getorganization:which one : final" +key +" value" +value);
+								if (key==="name")
+								{	
+									dataset.push(value);
+								}
+								
+							//	console.log("getorganization:inside " +key +" value" +value);
+							//	$.each(this, function(key,value) 
+							//	{	
+							//		console.log("getorganization:fully inside " +key +" value" +value);
+							//		if (key==="name")
+							//		{
+							//			dataset.push(value);
+							//		}
+							//	});
+							});
+						
+					});
+			//	}
+		});																												
+	});
+	console.log('final dataset '+dataset);
+	return dataset;
+}
+
+
+
+
+
+
+function getlocality(data)
+{
+//	console.log("Insider getlocality:village:Service Data");
+	var localities=[];            
+	$.each(data.organization.service, function() {
+//		console.log("first loop getlocality "+this.centers +" #"+this.name); if (this.name=="yoga"){
+    $.each(this.centers, function() {
+//			console.log("second loop village:area " +this.locality); 
+			localities.push(this.locality);        
+ //           console.log("third loop getlocality " +this.locality/village);
+            });
+			
+			
+		});
+//		console.log("final loop getlocality " +localities);
+		return localities;
+}
+
+var options1 = {
+	url: "resources/yogacenters.json",
+
+	listLocation: "centerdata",
+	
+	getValue: "assembly",
+	template: {
+		type: "custom",
+		method: function(value, item) {
+			var selectedvalue = $("#location").val();
+		//	console.log("Inside " +item.city);
+		//	console.log(selectedvalue);
+			
+			if (selectedvalue === item.city)
+				return  value;
+		}
+	},
+	list: {
+		match: {
+			enabled: true
+		}
+	}
+};
+----
+
+$(document).ready(function(){
+//$('#service).val('');
+//$('#serviceprovider').val('');
+
+    $("#location").change(function(){
+
+		$.getJSON( servicedataurl, function( data ) {
+	//	  console.log(data.centerdata);
+		  var cols = GetHeaders(data);
+		  $('#output').html(CreateTable(data, cols));		
+		});	
+
+	  
+});
+    });
+=====\\
+
+var data = {
+    "items": [{
+        "id": 1,
+        "category": "cat1"
+    }, {
+        "id": 2,
+        "category": "cat2"
+    }, {
+        "id": 3,
+        "category": "cat1"
+    }]
+};
+
+var returnedData = $.grep(data.items, function (element, index) {
+    return element.id == 1;
+});
+
+
+alert(returnedData[0].id + "  " + returnedData[0].category);
+
+
+-----
+(function($) {
+    $(document).ready(function() {
+        var months = [  'January', 'February', 'March', 'April', 'May',
+                        'June', 'July', 'August', 'September', 'October',
+                        'November', 'December'];
+        months = $.grep(months, function(value, i) {
+            return ( value.indexOf('J') == 0 );
+        });
+        $('#months').html( '<li>' + months.join('</li><li>') + '</li>' );
+    });
+})(jQuery);
+
+modifiedservicedata = $.grep(latestservicedata.servicedata,function (value,i) {return value.service=='Yoga' && value.district=='Bengaluru'});
+
+
+modifiedservicedata = $.grep(latestservicedata.servicedata,function (value,i) 
+{
+console.log('selected service ', value.service, 'selected service provider ', selectedserviceprovider, 'selected location #', selectedlocation);
+console.log('Is service in array ', $.inArray(selectedservice, value.service) !== -1);
+return ($.inArray(selectedservice, value.service) !== -1 && $.inArray(selectedserviceprovider, value.serviceprovider) !== -1 && $.inArray(selectedlocation, value.district) !== -1)
+
+});
+
+
+modifiedservicedata = $.grep(latestservicedata.servicedata,function (value,i) 
+{
+console.log('Is service in array ', $.inArray(selectedservice, value.service) !== -1);
+if ($.inArray(selectedservice, value.service) !== -1)
+{
+	if ($.inArray(selectedserviceprovider, value.serviceprovider) !== -1)
+	{
+		if ($.inArray(selectedlocation, value.district) !== -1)
+		return this;
+	}
+}
+});
+
+
+modifiedservicedata = $.grep(latestservicedata.servicedata,function (value,i) 
+{
+console.log('value:service ', value.service,+" service provider", value.serviceprovider, +" district ", value.district);
+return (
+if ($.inArray(selectedservice, value.service) !== -1)
+{
+	if ($.inArray(selectedserviceprovider, value.serviceprovider) !== -1)
+	{
+		 if ($.inArray(selectedlocation, value.district) !== -1)
+		 {
+			console.log('Passed all the loop');
+		 }
+			
+		
+		
+	}
+}
+)});
+
+
+modifiedservicedata = $.grep(latestservicedata.servicedata,function (value,i) 
+{
+console.log('value:service ', selectedservice,+" service provider", selectedserviceprovider, +" district ", selectedlocation);
+console.log('value service comparison ',$.inArray(selectedservice, value.service) !== -1);
+return ($.inArray(selectedservice, value.service) !== -1 && $.inArray(selectedserviceprovider, value.serviceprovider) !== -1 &&$.inArray(selectedlocation, value.district) !== -1)});
+
+
+--- final---
+modifiedservicedata = $.grep(latestservicedata.servicedata,function (value,i) 
+{
+console.log('value:service ', selectedservice,+" service provider", selectedserviceprovider, +" district ", selectedlocation);
+console.log('value service comparison ',$.inArray(selectedservice, value.service) !== -1);
+return ($.inArray(selectedservice, value.service) !== -1 && $.inArray(selectedserviceprovider, value.serviceprovider) !== -1 && selectedlocation== value.district)});

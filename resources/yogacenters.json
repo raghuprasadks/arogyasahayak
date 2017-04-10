@@ -1,0 +1,51 @@
+{"centerdata": [
+        {
+			"type":"yogacenter",
+			"code":"01",
+			"name":"Apple Mediclinic",
+			"address":"Kogilu Cross",
+			"locality":"Kogilu",
+			"ward":"Ward no 1",
+			"assembly":"Yelahanka",
+			"loksabha":"Chikkaballapur",
+			"state":"Karnataka",
+			"country":"India",
+			"pin":"560064",
+			"timings":"6 - 7.30 am",
+			"contact":"992731117",			
+			"city":"Bengaluru"
+		},
+		{
+			"type":"yogacenter",
+			"code":"02",
+			"name":"Apple Mediclinic",
+			"address":"Kogilu Cross",
+			"locality":"Yelahanka new town",
+			"ward":"Ward no 2",
+			"assembly":"Malleshwaram",
+			"loksabha":"Chikkaballapur",
+			"state":"Karnataka",
+			"country":"India",
+			"pin":"560064",
+			"timings":"6 - 7.30 am",
+			"contact":"992731117",			
+			"city":"Bengaluru"			
+		},
+		{
+			"type":"yogacenter",
+			"code":"03",
+			"name":"Apple Mediclinic",
+			"address":"Kogilu Cross",
+			"locality":"Yelahanka new town",
+			"ward":"Ward no 3",
+			"assembly":"Yelahanka",
+			"loksabha":"Chikkaballapur",
+			"state":"Karnataka",
+			"country":"India",
+			"pin":"560064",
+			"timings":"6 - 7.30 am",
+			"contact":"992731117",			
+			"city":"Bengaluru"
+		}
+        ]
+    }

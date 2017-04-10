@@ -1,0 +1,49 @@
+{"serviceprovider": [
+        {
+          "service": ["Yoga"],
+		  "name": "Patanjali",
+          "address": "6/22 AZAD COLONY, KESHWAPUR, HUBLI",
+          "pin": "580023",
+          "state": "KARNATAKA",
+          "contact": "",
+          "mail": "",
+          "url": "",
+          "facebook": "",
+          "twitter": ""		  
+		},
+		{
+          "service": ["Ayurveda"],
+		  "name": "Patanjali Ayurveda",
+          "address": "6/22 AZAD COLONY, KESHWAPUR, HUBLI",
+          "pin": "580023",
+          "state": "KARNATAKA",
+          "contact": "",
+          "mail": "",
+          "url": "",
+          "facebook": "",
+          "twitter": ""		  
+		},
+		{
+          "service": ["Yoga","Ayurveda"],
+		  "name": "Art of living",
+          "address": "Kanakapura main road, Bengaluru",
+          "pin": "580023",
+          "state": "KARNATAKA",
+          "contact": "",
+          "mail": "",
+          "url": "",
+          "facebook": "",
+          "twitter": ""		  
+		},
+		{
+          "service": ["Ayurveda"],
+		  "name": "Ramachandrapura matt",
+          "address": "Ramachandrapura,Hosanagar, Shimoga",
+          "pin": "580023",
+          "state": "KARNATAKA",
+          "contact": "",
+          "mail": "",
+          "url": "",
+          "facebook": "",
+          "twitter": ""		  
+        }]}

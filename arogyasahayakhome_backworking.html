@@ -1,0 +1,225 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <title>Arogya Sahayak</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="lib/bootstrap.min.css">
+  <script src="lib/jquery.min.js"></script>
+  <script src="lib/bootstrap.min.js"></script>
+
+	<script src="lib/jquery-ui.js"></script>
+	<link rel="stylesheet" href="lib/jquery_ui.css"> 
+	
+
+     
+</head>
+
+ 
+
+  <body>
+  
+   
+  
+<div class="container-fluid">
+	<div class="row">
+    <div id="serviceField" class="col-xs-3 col-sm-3 col-lg-3">
+	<input id="service" placeholder="Enter Service" type="text"/>
+	</div>
+	
+	<div id="organizationField" class="col-xs-3 col-sm-3 col-lg-3">
+	<input id="organization" placeholder="Enter Organization" type="text"/>
+	</div>
+
+    <div id="locationField" class="col-xs-3 col-sm-3 col-lg-3">
+      <input id="location" placeholder="Enter a district" type="text"/>
+    </div>
+	
+	<div id="localityField" class="col-xs-3 col-sm-3 col-lg-3">
+      <input id="locality" placeholder="Enter a locality" type="text"/>
+    </div>
+	
+
+ 
+</div>
+<div id="output" class="row">
+	<!-- <div id="output" class="col-xs-9 col-sm-9 col-lg-9"></div> -->
+	</div>
+	
+	
+ 
+    <script>
+ 	  var globalurl = "resources/json/servicedata.json";
+//var arr = $.map( ItemsList.organization.service, function( obj, i ) { return obj.name; } ); 	
+	$('#service').autocomplete({
+    source: function (request, response) {
+        $.getJSON(globalurl, function (data) {
+            response($.map(data.organization.service, function (obj, i) {
+                console.log('value# modified ' +obj.name);
+	//			return {
+              //      label: value,
+                //    value: key
+		//			label:value
+          //      };
+				return {label:obj.name};
+            }));
+        });
+    },
+    minLength: 2,
+    delay: 100
+});
+	
+$('#organization').autocomplete({
+    source: function (request, response) {
+        $.getJSON(globalurl, function (data) {
+            response($.map(data.organization, function (val, key) {
+				if (key=="name"){
+					console.log ("What is inside loop" +{label:val});
+					return {label:val};  }  
+        }));
+		});
+    },
+    minLength: 2,
+    delay: 100
+});
+	
+	
+$('#location').autocomplete({
+    source: function (request, response) {
+       $.getJSON(globalurl, function (data) {
+		response(getlocation(data));
+	});	
+    },
+    minLength: 2,
+    delay: 100
+});
+
+$('#locality').autocomplete({
+    source: function (request, response) {
+       $.getJSON(globalurl, function (data) {
+		response(getlocality(data));
+	});	
+    },
+    minLength: 2,
+    delay: 100
+});
+
+
+function getlocation(data)
+{
+	console.log("Insider getlocation: mylogation");
+	var districts=[];            
+	$.each(data.organization.service, function() {
+		console.log("first loop:mylogation "+this.centers +" #"+this.name); if (this.name=="yoga"){
+    $.each(this.centers, function() {
+			console.log("second loop district:mylogation " +this.localityOrvillage); 
+			districts.push(this.district);
+        
+      //      console.log("third loop district " +districts);
+            });			
+		}});
+	//	console.log("final loop district " +districts);
+		return districts;
+}
+
+function getlocality(data)
+{
+	console.log("Insider getlocality:village:Service Data");
+	var localities=[];            
+	$.each(data.organization.service, function() {
+		console.log("first loop getlocality "+this.centers +" #"+this.name); if (this.name=="yoga"){
+    $.each(this.centers, function() {
+			console.log("second loop village:area " +this.locality); 
+			localities.push(this.locality);        
+ //           console.log("third loop getlocality " +this.locality/village);
+            });
+			
+			
+		}});
+//		console.log("final loop getlocality " +localities);
+		return localities;
+}
+
+var options1 = {
+	url: "resources/yogacenters.json",
+
+	listLocation: "centerdata",
+	
+	getValue: "assembly",
+	template: {
+		type: "custom",
+		method: function(value, item) {
+			var selectedvalue = $("#location").val();
+		//	console.log("Inside " +item.city);
+		//	console.log(selectedvalue);
+			
+			if (selectedvalue === item.city)
+				return  value;
+		}
+	},
+	list: {
+		match: {
+			enabled: true
+		}
+	}
+};
+
+//$("#locality").easyAutocomplete(options1);
+
+$(document).ready(function(){
+    $("#locality").change(function(){
+
+		$.getJSON( "resources/yogacenters.json", function( data ) {
+	//	  console.log(data.centerdata);
+		  var cols = GetHeaders(data);
+		  $('#output').html(CreateTable(data, cols));		
+		});	
+
+	  
+});
+    });
+
+	function GetHeaders(obj) {
+        var cols = new Array();
+        var p = obj.centerdata[0];
+        for (var key in p) {
+      //      console.log(' name=' + key + ' value=' + p[key]);
+            cols.push(key);
+        }
+        return cols;
+    }
+	
+	function CreateTable(obj, cols) {
+	//console.log('Inside create table');
+	        var table = $('<table class="table table-bordered table-condensed table-striped table-hover"><tbody></tbody></table>');
+		        var th = $('<tr></tr>');
+        for (var i = 0; i < cols.length; i++) {
+            th.append('<th>' + cols[i] + '</th>');
+        }
+        table.append(th);
+	console.log('table' +table.text());	
+	//var table =  $('<table class="table table-bordered table-striped table-hover"><tr><th>Name</th></tr></table>');
+
+        for (var j = 0; j < obj.centerdata.length; j++) {
+           var player = obj.centerdata[j];
+            var tr = $('<tr class="table-row" id="result'+j+'"></tr>');
+            for (var k = 0; k < cols.length; k++) {
+                var columnName = cols[k];
+                tr.append('<td>' + player[columnName] + '</td>');
+            }
+            table.append(tr);
+        } 
+    //    console.log(table.toString());
+		return table;
+    }
+
+	
+
+	
+	
+    </script>
+ <!--    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAVHIZA5KB_HBZepJkrXo0GgBUS6JOWRX4&libraries=places&callback=initMap"
+        async defer></script> -->
+  </body>
+</html>

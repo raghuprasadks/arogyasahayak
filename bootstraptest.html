@@ -1,0 +1,116 @@
+<html>
+<head>
+<title>Bootstrap Grid</title>
+<!-- Latest compiled and minified CSS -->
+
+<!-- <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css"> -->
+
+<!-- Optional theme -->
+<!-- <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap-theme.min.css">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script> -->
+<!-- Latest compiled and minified JavaScript -->
+<!-- <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/js/bootstrap.min.js"></script> -->
+
+<meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="lib/bootstrap.min.css">
+  <script src="lib/jquery.min.js"></script>
+  <script src="lib/bootstrap.min.js"></script>
+
+	<script src="lib/jquery-ui.js"></script>
+	<link rel="stylesheet" href="lib/jquery_ui.css"> 
+<style type="text/css">
+.table-row{
+cursor:pointer;
+}
+</style>
+</head>
+<body>
+<script>
+$(document).ready(function()
+{
+$("#testtable").text('');
+console.log("Please use me I am ready");
+createtable();
+});
+
+$(document).ready(function(){
+console.log("waiting for click event");
+    $("tr").click(function(){
+        console.log('You have clicked me..');
+	});
+});
+
+function createtable(){
+var mytable = null;
+
+mytable = $('<table></table>').attr({ id: "mytable",class:"table table-bordered table-condensed table-striped table-hover"});
+    var rows = 5;
+    var cols = 3;
+	var row = null;
+	var tablehead = null;
+	var tablebody = null;
+//	var datarow = null;
+  //  var tr = [];
+	console.log('createtable: mytable start latest', mytable);
+	tablehead = $('<thead></thead>').appendTo(mytable);
+	row = $('<tr></tr>').appendTo(tablehead);
+	console.log('createtable: mytable:addrow:', mytable.html());
+	for (var c=0;c < cols; c++)
+	{
+		$('<th></th>').text("column header" +c).appendTo(row);
+	
+	}
+	tablebody =$('<tbody></tbody>').appendTo(mytable);
+	console.log('createtable: mytable:addrow:header', mytable.html());
+	
+	
+	for (var r=0; r<rows; r++)
+	{
+		console.log("row loop ", r);
+		var datarow = $('<tr></tr>').attr({ class: ["table-row"].join(' ') }).appendTo(mytable);
+		for (var col=0;col <cols;col++)
+		{
+			console.log("column loop ", cols);
+			$('<td></td>').text("coldata").appendTo(datarow);
+		}
+	}
+	console.log('createtable: mytable:addheader', mytable.html());
+	
+/*
+    for (var i = 0; i <= rows; i++) {
+        var row = $('<tr></tr>').attr({ class: ["table-row"].join(' ') }).appendTo(mytable);
+    if (i==0) {
+      for (var j = 0; j < cols; j++) {
+            $('<th></th>').text("text1").attr({class:["info"]}).appendTo(row);
+        }
+    }else {
+        for (var j = 0; j < cols; j++) {
+            $('<td></td>').text("text1").appendTo(row);
+        }
+}
+    }
+*/	
+//	console.log("Mytable: "+mytable.html());
+    mytable.appendTo("#testtable");
+}
+
+
+
+</script>
+<div id="testtable" class="container">
+
+<!-- <table class='table table-bordered table-condensed table-striped table-hover'>
+<tr><th>Name</th><th>Email</th><th>Country</th></tr>
+<tbody>
+ <tr class="table-row" id="test1"><td>Raghu</td><td>jhone@gmail.com</td><td>USA</td></tr>
+ <tr class="table-row" id="test2"><td>Kelly</td><td>kelly@gmail.com</td><td>USA</td></tr>
+<tr class="table-row" id="test3"><td>Kamana</td><td>kamna@gmail.com</td><td>India</td></tr>
+<tr class="table-row" id="test5"><td>Anay</td><td>anay@gmail.com</td><td>Canada</td></tr>
+ </tbody>
+ </table> -->
+ 
+</div>
+</body>
+</html>
+                                                 

@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<body>
+<head>
+<title>Arogya Sahayak</title>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="lib/jquery.min.js"></script>
+<script src="lib/bootstrap.min.js"></script>
+<script src="lib/jquery-ui.js"></script> 
+<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyA7ZULBQF8Yu15f4oSk1EC4z_6uAKdBBZM"></script>
+<link rel="stylesheet" href="lib/jquery_ui.css"> 
+<link rel="stylesheet" href="lib/bootstrap.min.css">
+<style type="text/css">
+.table-row{
+cursor:pointer;
+}
+
+#map {
+        min-height: 300px;
+		min-width: 300px;
+      }
+#detailinfo {
+        min-height: 100px;
+		min-width: 300px;
+		margin-top: 20px;
+      }
+th {
+    border-top: 0;
+    text-align: center;
+}
+#output {
+		margin-top:20px;
+}
+#searchcriteria {
+		margin-top:20px;
+}
+
+
+.member tr:hover{
+    background-color: rgba(200, 103, 182, 0.89);
+    color: #FFF;
+}
+.member tr.selected {
+    background-color: rgba(160, 103, 182, 0.89);
+    color: #FFF;
+}
+	  
+</style>	
+</head>
+<div class="container-fluid">
+	<div id="searchcriteria" class="row">
+		<div id="serviceField" class="col-xs-3 col-sm-3 col-lg-3">
+			<input id="service" placeholder="Enter Service" type="text"/>
+		</div>
+	
+		<div id="serviceproviderField" class="col-xs-3 col-sm-3 col-lg-3">
+			<input id="serviceprovider" placeholder="Enter Service Provider" type="text"/>
+		</div>
+		<div id="locationField" class="col-xs-3 col-sm-3 col-lg-3">
+			<input id="location" placeholder="Enter a district" type="text"/>
+		</div>	
+		<div id="localityField" class="col-xs-3 col-sm-3 col-lg-3">
+			<input id="locality" placeholder="Enter a locality" type="text"/>
+		</div>
+	</div>
+
+	<div>
+	<div id="output" class="col-xs-6 col-sm-6 col-lg-6"> </div>
+	
+	<div class="col-xs-6 col-sm-6 col-lg-6">
+		<div id="detailinfo">Detail info </div> 
+		<div id="map">Map </div>
+	</div>
+	</div>
+	
+</div>
+<script src="script/sahayak.js"></script>
+
+</body>
+</html>

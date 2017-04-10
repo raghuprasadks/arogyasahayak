@@ -1,0 +1,85 @@
+<meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="lib/bootstrap.min.css">
+  <script src="lib/jquery.min.js"></script>
+  <script src="lib/bootstrap.min.js"></script>
+
+	<script src="lib/jquery-ui.js"></script>
+	<link rel="stylesheet" href="lib/jquery_ui.css"> 
+<style type="text/css">
+	table{
+		width:500px;
+		height:500px;
+	}
+	table td{
+		padding:10px;
+		margin:10px;
+		border:1px solid #ccc;
+	}
+	
+	.table-row{
+	cursor:pointer;
+	}
+</style>
+<script>
+$(document).ready(function (){
+console.log('I am ready');
+$("tr").on('click', function(){
+     console.log('You have clicked this row');    
+});
+});
+
+function createTable(){
+mytable = $('<table></table>').attr({ id: "basicTable",class:"table table-bordered table-condensed table-striped table-hover"});
+    var rows = new Number($("#rowcount").val());
+    var cols = new Number($("#columncount").val());
+    var tr = [];
+
+    for (var i = 0; i <= rows; i++) {
+        var row = $('<tr></tr>').attr({ class: ["table-row"].join(' ') }).appendTo(mytable);
+    if (i==0) {
+      for (var j = 0; j < cols; j++) {
+            $('<th></th>').text("text1").attr({class:["info"]}).appendTo(row);
+        }
+    }else {
+        for (var j = 0; j < cols; j++) {
+            $('<td></td>').text("text1").appendTo(row);
+        }
+}
+    }
+	console.log("Mytable: "+mytable.html());
+    mytable.appendTo("#box");
+}
+</script>
+
+Row Count:<input type="text" id="rowcount" />
+Column Count:<input type="text" id="columncount" />
+<input type="button" onclick="createTable();" value="Create Table" />
+<div id="box">
+</div>
+
+
+<!-- <tr class="class1">
+	<th class="info">text1</th>
+	<th class="info">text1</th>
+	<th class="info">text1</th>
+	<th class="info">text1</th>
+	<th class="info">text1</th>
+	<th class="info">text1</th>
+</tr>
+<tr class="class1">
+	<td>text1</td>
+	<td>text1</td>
+	<td>text1</td>
+	<td>text1</td>
+	<td>text1</td>
+	<td>text1</td>
+</tr>
+<tr class="class1">
+	<td>text1</td>
+	<td>text1</td>
+	<td>text1</td>
+	<td>text1</td>
+	<td>text1</td>
+	<td>text1</td>
+</tr> -->

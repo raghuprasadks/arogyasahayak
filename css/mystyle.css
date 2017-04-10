@@ -1,0 +1,94 @@
+* {
+        margin: 0px;
+        padding: 0px;
+        font-family: 'Avenir', sans-serif;
+    }
+	
+html,body
+{
+    width: 100vw;
+    height: auto;
+    margin: 0px;
+    padding: 0px;
+    overflow: scroll;
+    overflow-x: hidden;
+}
+
+    /*...........NAVBAR......*/
+
+    .affix {
+        top: 0;
+        width: 100%;
+        z-index: 10;
+    }
+
+    .navbar {
+        background-color: #000;
+        border-radius: 0;
+        border-top: 1px solid #bfff00;
+        border-bottom: 1px solid #bfff00;
+        margin-bottom: 0;
+        padding-bottom: 10px;
+    }
+
+    #navbar ul li a {
+        text-transform: uppercase;
+        color: #ffffff;
+        font-weight: bold;
+        font-size: 13px;
+    }
+
+    #navbar ul {
+        margin-top: 10px;
+    }
+
+    .fa {
+        color: #ffffff;
+    }
+
+    .navbar-logo {
+        height: 40px;
+        width: 101px;
+    }
+
+    .logo-div {
+        margin-right: 30px;
+        margin-top: 0px;
+        margin-bottom: 10px;
+    }
+	
+	
+	.table-row{
+cursor:pointer;
+}
+
+#map {
+        min-height: 300px;
+		min-width: 300px;
+      }
+#detailinfo {
+        min-height: 100px;
+		min-width: 300px;
+		margin-top: 20px;
+      }
+th {
+    border-top: 0;
+    text-align: center;
+}
+#output {
+		margin-top:20px;
+}
+#searchcriteria {
+		margin-top:50px;
+}
+
+
+.member tr:hover{
+    background-color: rgba(200, 103, 182, 0.89);
+    color: #FFF;
+}
+.member tr.selected {
+    background-color: rgba(160, 103, 182, 0.89);
+    color: #FFF;
+}
+	

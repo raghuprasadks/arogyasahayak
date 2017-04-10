@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+
+<head>
+
+<title>Patanjali Sahayak</title>
+  
+  <meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+  <!--stylesheets linked here-->
+  
+  <script src="lib/js/jquery.min.js"></script>
+<script src="lib/js/bootstrap.min.js"></script>
+<script src="lib/js/jquery-ui.js"></script> 
+<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyA7ZULBQF8Yu15f4oSk1EC4z_6uAKdBBZM"></script>
+<link rel="stylesheet" href="lib/css/jquery_ui.css"> 
+<link rel="stylesheet" href="lib/css/bootstrap.min.css">
+<link rel="stylesheet" href="css/mystyle.css">
+
+  
+  
+  <link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Avenir">
+ 
+  <link rel="stylesheet" href="http://netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.min.css">
+  <!--Favicon Icon-->
+  <link rel='shortcut icon' href='img/favicon-final.png' type='image/x-icon'>
+  <!--custom javascript files -->
+	
+</head>
+<body>
+<nav class="navbar navbar-inverse" data-spy="affix" data-offset-top="50">
+    <div class="container-fluid">
+      <div class="navbar-header">
+        <button type="button" class="pull-left navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+          <span class="sr-only">Toggle navigation</span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+        <a class="navbar-brand" href="index.html">
+          <div class="logo-div"><img class="navbar-logo" src="img/navlogo.png"></div>
+        </a>
+      </div>
+      <div id="navbar" class="navbar-collapse collapse">
+        <ul class="nav navbar-nav">
+          <li class="active"><a href="#">about us</a></li>
+          <li><a href="gallery.html">gallery</a></li>
+          <li><a href="contact.html">contact us</a></li>
+        </ul>
+        <!-- social media icons -->
+        <ul class="nav navbar-nav navbar-right social">
+          <li><a href="https://www.facebook.com/thefitdistrict/" target="_blank"><i class="fa fa-lg fa-facebook" aria-hidden="true"></i></a></li>
+          <li><a href="https://twitter.com/BHARATSWABHIMN" target="_blank"><i class="fa fa-lg fa-twitter" aria-hidden="true"></i></a></li>
+          <li><a href="https://www.youtube.com/user/TheBHARATSWABHIMAN"  target="_blank"><i class="fa fa-lg fa-youtube-play" aria-hidden="true"></i></a></li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+<!-- <div class="container-fluid"> -->
+
+	<div class="col-xs-12 col-sm-12 col-lg-12"><h3>Quickly locate Patanjali yoga centers and Patanjali Chikitsalaya in your locality</h3>
+	</div>
+	<div id="searchcriteria" class="row">
+		<div id="serviceField" class="col-xs-12 col-sm-3 col-lg-3">
+			<input id="service" placeholder="Enter Service" type="text"/>
+		</div>
+	
+		<div id="serviceproviderField" class="col-xs-12 col-sm-3 col-lg-3">
+			<input id="serviceprovider" placeholder="Enter Service Provider" type="text"/>
+		</div>
+		<div id="locationField" class="col-xs-12 col-sm-3 col-lg-3">
+			<input id="location" placeholder="Enter a district" type="text"/>
+		</div>	
+		<div id="localityField" class="col-xs-12 col-sm-3 col-lg-3">
+			<input id="locality" placeholder="Enter a locality" type="text"/>
+		</div>
+	</div>
+
+	<div>
+		<div id="output" class="col-xs-12 col-sm-12 col-lg-6"> </div>
+	
+		<div class="col-xs-12 col-sm-12 col-lg-6">
+			<div id="detailinfo"></div> 
+			<div id="map"></div>
+		</div>
+	</div>
+	
+</div>
+<footer class="footer">
+      <div class="container text-center">
+        <h3>&copy; 2017 Patanjali Sahayak. All Rights Reserved </h3>
+      </div>
+    </footer>
+
+<script src="script/sahayak.js"></script>
+
+</body>
+</html>

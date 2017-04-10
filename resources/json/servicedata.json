@@ -1,0 +1,68 @@
+{  
+    "service": [
+      {
+        "name": "yoga",
+		"organization": {
+							"name": "Patanjali Yoga Samiti Bengaluru",
+							"address": "6/22 AZAD COLONY, KESHWAPUR, HUBLI",
+							"pin": "580023",
+							"state": "KARNATAKA",
+							"contact": "",
+							"mail": "",
+							"url": "",
+							"facebook": "",
+							"twitter": ""
+						},		
+        "centers": [
+          {
+            "district": "Bengaluru",
+            "taluk": "Byatarayanapura",
+            "locality": "Hegdenagar",
+            "address": "Rashtrottahana Vidya Kendra,Thanisandra Main Road,Bengaluru",
+            "pincode": "560077",
+            "timingsfrom": "5.45",
+            "timingsto": "7.00",
+            "trainer": "Raghu Prasad,Sudhama",
+            "contact": "9845547471,9008663619",
+            "code": "BANBATHN01",
+			"longitude" : 40.266044,
+			"latitude" : -22
+          },
+          {
+            "district": "Shimoga",
+            "taluk": "Shimoga",
+            "locality": "Vinobanagar",
+            "address": "Vasudha, Ist Stage, II Block, Vinobanagar,Shimoga",
+            "pincode": "577004",
+            "timingsfrom": "17",
+            "timingsto": "18",
+            "trainer": "Shankara Bhatta",
+            "contact": "0818224019",
+            "code": "SMGSMGVN01",
+			"longitude" : 40.266044,
+			"latitude" : -22
+          }
+        ]
+      },
+      {
+        "name": "Chikitsalaya",
+        "centers": [
+          {
+            "district": "Bengaluru",
+            "taluk": "C V Raman Nagar",
+            "locality": "Indira Nagar",
+            "address": "Patanjali Chikitsalaya, Behind Metro Station, Indiranagar,Bengaluru",
+            "pincode": "560034",
+            "timingsfrom": "9",
+            "timingsto": "20",
+            "trainer": "Basavaraj",
+            "contact": "9000000001",
+            "code": "BANINDCH01",
+			"longitude" : 40.266044,
+			"latitude" : -22
+          }
+        ]
+      }
+    ]
+  }
+}

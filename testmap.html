@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Bootstrap Example</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+
+ <style>
+      /* Always set the map height explicitly to define the size of the div
+       * element that contains the map. */
+ 
+   #maps {
+        height: 50%;
+		width: 50%;
+		min-height: 300px;
+		min-width: 300px;
+      }
+	  
+	  
+	  
+      /* Optional: Makes the sample page fill the window. */
+      html, body {
+        height: 100%;
+        margin: 0;
+        padding: 0;
+      }
+    </style>
+  
+ </head>
+<body onload="initMap()">
+
+<div class="container">
+<div class="col-xs-6 col-sm-6 col-lg-6">
+  <h2>Basic Table</h2>
+  <p>The .table class adds basic styling (light padding and only horizontal dividers) to a table:</p>            
+  <table class="table">
+    <thead>
+      <tr>
+        <th>Firstname</th>
+        <th>Lastname</th>
+        <th>Email</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>John</td>
+        <td>Doe</td>
+        <td>john@example.com</td>
+      </tr>
+      <tr>
+        <td>Mary</td>
+        <td>Moe</td>
+        <td>mary@example.com</td>
+      </tr>
+      <tr>
+        <td>July</td>
+        <td>Dooley</td>
+        <td>july@example.com</td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+
+
+<div class="col-xs-6 col-sm-6 col-lg-6">
+<div>
+<p>Additional information comes here</p>
+<table class="table">
+<thead>
+<tr>
+<th> Address
+</th>
+<tr>
+</thead>
+<tbody>
+<tr>
+<td>
+Rashtrottahana Vidya Kendra,Thanisandra, Bengaluru
+<td>
+</tr>
+
+</tbody>
+
+</table>
+
+</div>
+<div id="maps">
+<p>Map comes here</p>
+</div>
+</div>
+</div>
+
+<script>
+function initMap() {
+var maps;
+alert ('Insider here');
+console.log('init map.. what is the problem');
+
+maps = new google.maps.Map(document.getElementById('maps'), {
+      center: {lat: 13.0680807, lng: 77.6320586},
+      zoom: 15
+});
+}
+</script>
+<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyA7ZULBQF8Yu15f4oSk1EC4z_6uAKdBBZM"></script>
+
+</body>
+</html>

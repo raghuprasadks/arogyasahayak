@@ -1,0 +1,91 @@
+<html>
+<body>
+<head>
+<title>Bootstrap Grid</title>
+
+<meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="lib/bootstrap.min.css">
+  <script src="lib/jquery.min.js"></script>
+  <script src="lib/bootstrap.min.js"></script>
+
+	<script src="lib/jquery-ui.js"></script>
+	<link rel="stylesheet" href="lib/jquery_ui.css"> 
+
+</head>
+
+
+<!-- The table -->
+<table id="table">
+    <thead>
+    <tr>
+        <th data-field="state" data-checkbox="true"></th>
+        <th data-field="name">Name</th>
+        <th data-field="stargazers_count">Stars</th>
+        <th data-field="forks_count">Forks</th>
+        <th data-field="description">Description</th>
+    </tr>
+    </thead>
+</table>
+
+<!-- The output -->
+<pre id="output"></pre>
+<script>
+// Sample data
+var data = [
+    {
+        "name": "bootstrap-table",
+        "stargazers_count": "526",
+        "forks_count": "122",
+        "description": "An extended Bootstrap table with radio, checkbox, sort, pagination, and other added features. (supports twitter bootstrap v2 and v3) "
+    },
+    {
+        "name": "multiple-select",
+        "stargazers_count": "288",
+        "forks_count": "150",
+        "description": "A jQuery plugin to select multiple elements with checkboxes :)"
+    },
+    {
+        "name": "bootstrap-show-password",
+        "stargazers_count": "32",
+        "forks_count": "11",
+        "description": "Show/hide password plugin for twitter bootstrap."
+    },
+    {
+        "name": "blog",
+        "stargazers_count": "13",
+        "forks_count": "4",
+        "description": "my blog"
+    },
+    {
+        "name": "scutech-redmine",
+        "stargazers_count": "6",
+        "forks_count": "3",
+        "description": "Redmine notification tools for chrome extension."
+    }
+];
+
+var $table = $('#table').bootstrapTable({
+    data: data
+});
+
+$table.on('click', 'tbody > tr > td', function (e){
+    var table = $table.data('bootstrap.table'),
+        $element = $(this),
+        $tr = $element.parent(),
+        row = table.data[$tr.data('index')],
+        cellIndex = $element[0].cellIndex,
+        $headerCell = table.$header.find('th:eq(' + cellIndex + ')'),
+        field = $headerCell.data('field'),
+        value = row[field];
+    
+    table.$el.trigger($.Event('click-cell.bs.table'), [value, row, $element]);
+});
+
+$table.on('click-cell.bs.table', function(e, value, row, $element){
+    alert( "Value: " + value );
+});
+
+</script>
+</body>
+</html>
